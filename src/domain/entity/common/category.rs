@@ -1,0 +1,3 @@
+struct Category {
+    name: String
+}
