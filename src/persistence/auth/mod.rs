@@ -1,1 +1,3 @@
-pub mod google_auth;
+pub mod google;
+mod common;
+pub mod jwt;

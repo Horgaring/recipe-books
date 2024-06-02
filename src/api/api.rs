@@ -1,22 +1,19 @@
 use rocket::Route;
 use rocket::routes;
-use crate::features::Customer::get_by_id::get_by_id_endpoint;
-use crate::features::Topic::get_by_name;
+use crate::features;
 
 
 pub fn book_endpoints() -> Vec<Route> {
-    routes![]
+    routes![features::Book::routes::create,
+        features::Book::routes::create_html]
 }
 pub fn recipe_endpoints() -> Vec<Route> {
-    vec![]
+    routes![features::Recipe::routes::create]
 }
-pub fn library_endpoints() -> Vec<Route> {
-    vec![]
-    
-}
+
 pub fn customer_endpoints() -> Vec<Route> {
-    routes![get_by_id_endpoint]
+    routes![features::Customer::routes::get_by_id_endpoint]
 }
 pub fn topic_endpoints() -> Vec<Route> {
-    routes![get_by_name::get_by_name_endpoint]
+    routes![features::Topic::routes::create_endpoint]
 }

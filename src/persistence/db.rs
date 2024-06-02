@@ -1,5 +1,5 @@
-use sqlx::{migrate::Migrate, Pool};
-use sqlx_postgres::{PgPoolOptions, Postgres};
+use sqlx::{ Pool};
+use sqlx_postgres::{PgPoolOptions};
 use std::env;
 use sqlx::database::Database;
 
