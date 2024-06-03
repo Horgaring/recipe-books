@@ -8,12 +8,14 @@ pub fn book_endpoints() -> Vec<Route> {
         features::Book::routes::create_html]
 }
 pub fn recipe_endpoints() -> Vec<Route> {
-    routes![features::Recipe::routes::create]
+    routes![features::Recipe::routes::create,
+    features::Recipe::routes::create_html]
 }
 
 pub fn customer_endpoints() -> Vec<Route> {
     routes![features::Customer::routes::get_by_id_endpoint]
 }
 pub fn topic_endpoints() -> Vec<Route> {
-    routes![features::Topic::routes::create_endpoint]
+    routes![features::Topic::routes::create_endpoint,
+    features::Topic::routes::create_html]
 }

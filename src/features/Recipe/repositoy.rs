@@ -8,7 +8,7 @@ use crate::domain::entity::recipe::Recipe;
 pub async fn create(recipe: &Recipe, pool: &Pool<Postgres>) -> Result<Recipe, Error> {
     let now_odt = OffsetDateTime::now_utc();
     let res = sqlx::query_as::<Postgres, Recipe>(
-        "INSERT INTO Recipe (name, topic_id, created_at, updated_at,instruction,id) VALUES ($1, $2, $3, $4,$5,$6) RETURNING *"
+        "INSERT INTO Recipe (name, topic_id, created_at, updated_at,instruction,id,book_id) VALUES ($1, $2, $3, $4,$5,$6,$7) RETURNING *"
     )
     .bind(&recipe.name)
     .bind(&recipe.topic_id)
@@ -16,6 +16,7 @@ pub async fn create(recipe: &Recipe, pool: &Pool<Postgres>) -> Result<Recipe, Er
     .bind(PrimitiveDateTime::new(now_odt.date(), now_odt.time()))
     .bind(&recipe.instruction)
     .bind(Uuid::new_v4())
+    .bind(recipe.book_id)
     .fetch_one(pool)
     .await?;
     Ok(res)

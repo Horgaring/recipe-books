@@ -37,10 +37,8 @@ pub async fn create_html() -> content::RawHtml<String> {
   <legend></legend>
   <label for="name">First name:</label><br>
   <input type="text"  name="name" value="John"><br>
-  <label for="customer_id">customer_id:</label><br>
-  <input type="text"  name="customer_id" value="Doe"><br>
-  <label for="visibilityMode_id">visibilityMode_id:</label><br>
-  <input type="text"  name="visibilityMode_id" value="youremail@gmail.com"><br><br>
+  <label for="visibilitymode_id">visibilityMode_id:</label><br>
+  <input type="text"  name="visibilitymode_id" value="youremail@gmail.com"><br><br>
   <input type="submit" value="Submit">
 </fieldset>
 </form>

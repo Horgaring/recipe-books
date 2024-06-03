@@ -6,6 +6,7 @@ use recipe_books::{
 
 };
 use rocket::http::CookieJar;
+use recipe_books::api::api::topic_endpoints;
 use recipe_books::error::CustomError;
 
 #[macro_use]
@@ -19,6 +20,7 @@ async fn rocket() -> _ {
         .mount("/books", book_endpoints())
         .mount("/recipes", recipe_endpoints())
         .mount("/customers", customer_endpoints())
+        .mount("/topics",topic_endpoints())
         .mount("/auth0", routes![external, callback])
         .mount("/1", routes![test])
 }

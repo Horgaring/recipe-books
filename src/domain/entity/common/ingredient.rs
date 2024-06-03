@@ -1,12 +1,12 @@
 use rocket::FromForm;
 use serde::Serialize;
 use sqlx::FromRow;
-use uuid::Uuid;
+use sqlx::types::Uuid;
 
 #[derive(FromRow,Serialize,FromForm)]
 pub struct Ingredient {
-    pub id:uuid::Uuid,
+    pub id:Option<Uuid>,
     pub(crate) name: String,
-    pub recipe_id: uuid::Uuid,
-    pub Book_id:Uuid,
+    pub recipe_id: Uuid,
+    pub book_id:Uuid,
 }

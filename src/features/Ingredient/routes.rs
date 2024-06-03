@@ -22,7 +22,7 @@ pub async fn create(
             return Err(CustomError::Redirect(String::from("/auth0/login"))) // Or handle differently based on error
         }
     };
-    match features::Book::repositoy::get_by_id(ingredient.Book_id, &pool).await{
+    match features::Book::repositoy::get_by_id(ingredient.book_id, &pool).await{
         Ok(book) => {
             if book.customer_id.unwrap() != customer {
                return Err(CustomError::PermissionDenied("Customer id is not equal customer id in book entity"))

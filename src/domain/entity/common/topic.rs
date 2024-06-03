@@ -5,8 +5,8 @@ use sqlx::{FromRow};
 
 #[derive(Debug, Clone, FromRow,FromForm, Serialize, Deserialize)]
 pub struct Topic {
-    pub id: Uuid,
+    pub id: Option<Uuid>,
     pub name: String,
     pub description: String,
-    pub Book_id:Uuid,
+    pub book_id:Uuid,
 }

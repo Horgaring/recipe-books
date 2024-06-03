@@ -19,8 +19,8 @@ CREATE TABLE Customer (
 CREATE TABLE  Book (
             id UUID PRIMARY KEY,
             name TEXT NOT NULL,
-            created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-            updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+            created_at TIMESTAMP  DEFAULT NOW(),
+            updated_at TIMESTAMP  DEFAULT NOW(),
             Customer_id TEXT REFERENCES Customer(id)
             ON DELETE cascade,
             VisibilityMode_id UUID REFERENCES VisibilityMode(id)
@@ -37,8 +37,8 @@ CREATE TABLE  Recipe (
             id UUID PRIMARY KEY,
             name TEXT NOT NULL,
             instruction TEXT NOT NULL,
-            created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-            updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+            created_at TIMESTAMP  DEFAULT NOW(),
+            updated_at TIMESTAMP  DEFAULT NOW(),
             Topic_id UUID REFERENCES Topic(id)
             ON DELETE cascade,
             Book_id UUID REFERENCES Book(id)

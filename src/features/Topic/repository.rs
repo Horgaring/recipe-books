@@ -27,7 +27,7 @@ pub async fn create(topic: topic::Topic, pool: &Pool<Postgres>) -> Result<topic:
         .bind(Uuid::new_v4())
         .bind(&topic.name)
         .bind(&topic.description)
-        .bind(&topic.Book_id)
+        .bind(&topic.book_id)
         .fetch_one(pool)
         .await;
     match topic {
